@@ -26,11 +26,14 @@ def saveMoney(moneytoSave):
         print("Ошибка создания файла")
     quit(0)
 def choicegame():
-    print("В какую игру поиграем сегодня?")
     choice=False
-    while choice==False:
-        player_choice= input()
-        base_points="1,2,3,0"
+    player_choice=""
+    while choice==False or player_choice=="":
+        try:
+            player_choice= int(input())
+        except:
+            pass
+        base_points=[1,2,3,0]
         if player_choice in base_points:
             choice=True
             return(player_choice)
@@ -45,10 +48,10 @@ print("    ","1 - Рулетку")
 print("    ","2 - Кости")
 print("    ","3 - Слоты")
 print("    ","0 - Выход")
+choicegame()
 
-
-if int(choicegame()) == 0:
-    exitgame(loadmoney())
+# if int(choicegame()) == 0:
+#     exitgame(loadmoney())
 
 
 # message_in_stars("Приветствую тебя в нашем казино 'LASVEGAS'!")
