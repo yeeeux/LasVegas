@@ -3,6 +3,12 @@ currency="RUB"
 defaultMoney=10000
 playGame=True
 
+def getInput(digit, message):
+    inputt=""
+    while(inputt=="" or not inputt in digit):
+        inputt=input(message)
+    return (inputt)
+
 def message_in_stars(message):
         print()
         print("*"*(len(message)+4))
@@ -25,20 +31,7 @@ def saveMoney(moneytoSave):
     except:
         print("Ошибка создания файла")
     quit(0)
-def choicegame():
-    choice=False
-    player_choice=""
-    while choice==False or player_choice=="":
-        try:
-            player_choice= int(input())
-        except:
-            pass
-        base_points=[1,2,3,0]
-        if player_choice in base_points:
-            choice=True
-            return(player_choice)
-        else:
-            print("Введите число!")
+
 def exitgame(m):
     print(f'Жаль что ты уходишь. Возвращайся завтра. Твой баланс {m}')
 
@@ -48,7 +41,7 @@ print("    ","1 - Рулетку")
 print("    ","2 - Кости")
 print("    ","3 - Слоты")
 print("    ","0 - Выход")
-choicegame()
+getInput("0123","Введите число!")
 
 # if int(choicegame()) == 0:
 #     exitgame(loadmoney())
