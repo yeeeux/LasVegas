@@ -40,53 +40,53 @@ def roulette(mon):
                 playroulett=False
         if x=="6":
             chislo=getIntInput(0,36, "На какое число ставишь?(0-36):")
-        if int(x)==0:
-            return money
+        if int(x)==0 or money==0:
+            return int(money)
         if playroulett:
             stavka = getIntInput(0, money, f"Сколько поставишь? (не больше {money})")
             if stavka == 0:
                 return 0
             print()
             if int(x) == 1:
-                print("Ты поставил на \033[31m красное \033[33m ")
+                print("Ты поставил на \033[31m красное \033[0m ")
                 if (number % 2 == 0):
-                    print("На рулетке выпало Красное!")
+                    print("На рулетке выпало \033[31m Красное!\033[0m")
                     money+=stavka
-                    print(f"Твой выигрыш:{stavka} {valuta}")
+                    print(f"Твой выигрыш составил: \033[32m {stavka} {valuta} \033[0m")
                 else:
-                    print("На рулетке выпало черное(!")
+                    print("На рулетке выпало \033[30m черное(! \033[0m")
                     money-=stavka
-                    print(f"Твой проигрыш:{stavka} {valuta}")
+                    print(f"Твой проигрыш:\033[31m {stavka} {valuta} \033[0m ")
             if int(x) == 2:
-                print("Ты поставил на чёрное!")
+                print("Ты поставил на \033[30m чёрное!  \033[0m")
                 if (number %2 != 0):
-                    print("На рулетке выпало Чёрное!")
+                    print("На рулетке выпало \033[30m чёрное!  \033[0m")
                     money+=stavka
-                    print(f"Твой выигрыш:{stavka} {valuta}")
+                    print(f"Твой выигрыш:\033[32m {stavka} {valuta} \033[0m")
                 else:
-                    print("На рулетке выпало Красное!")
+                    print("На рулетке выпало  \033[31m Красное!\033[0m")
                     money-=stavka
-                    print(f"Твой проигрыш:{stavka} {valuta}")
+                    print(f"Твой проигрыш:\033[31m {stavka} {valuta} \033[0m")
             if int(x) == 3:
                 print("Ты поставил на ЧЁТНОЕ!")
                 if (number % 2 == 0):
                     print(f"На рулетке выпало {number}")
                     money+=stavka
-                    print(f"Твой выигрыш:{stavka} {valuta}")
+                    print(f"Твой выигрыш:\033[32m {stavka} {valuta} \033[0m")
                 else:
                     print(f"На рулетке выпало {number}")
                     money-=stavka
-                    print(f"Твой проигрыш:{stavka} {valuta}")
+                    print(f"Твой проигрыш:\033[31m {stavka} {valuta} \033[0m")
             if int(x) == 4:
                 print("Ты поставил на Нечётное!")
                 if (number %2 != 0):
                     print(f"На рулетке выпало {number}")
                     money+=stavka
-                    print(f"Твой выигрыш:{stavka} {valuta}")
+                    print(f"Твой выигрыш:\033[32m {stavka} {valuta} \033[0m")
                 else:
                     print(f"На рулетке выпало {number}")
                     money-=stavka
-                    print(f"Твой проигрыш:{stavka} {valuta}")
+                    print(f"Твой проигрыш:\033[31m {stavka} {valuta} \033[0m")
             if int(x) == 5:
                 print(f"Ты поставил на диапазон: {textDuzhina}")
                 winduzhina=""
@@ -99,20 +99,21 @@ def roulette(mon):
                 print (f"На рулетке выпало число {number}")
                 if duzhina==winduzhina:
                     money+=stavka*2
-                    print(f"Твой выигрыш:{stavka*3} {valuta}")
+                    print(f"Твой выигрыш:\033[32m {stavka*3} {valuta} \033[0m")
                 else:
                     money-=stavka
-                    print(f"Твой проигрыш:{stavka} {valuta}")
+                    print(f"Твой проигрыш:\033[31m {stavka} {valuta} \033[0m")
             if int(x) == 6:
                 print(f"Ты поставил на число: {chislo}")
                 if (number == chislo):
                     print (f"На рулетке выпало число {number}")
                     money+=stavka*35
-                    print(f"Твой выигрыш:{stavka*36} {valuta}")
+                    print(f"Твой выигрыш::\033[32m {stavka*36} {valuta} \033[0m")
                 else:
                     print (f"На рулетке выпало число {number}")
                     money-=stavka
-                    print(f"Твой проигрыш:{stavka} {valuta}")
+                    print(f"Твой проигрыш:\033[31m {stavka} {valuta} \033[0m")
             print()
             input("Нажмите ENTER для продолжения")
+    return money
 

@@ -65,8 +65,15 @@ def main():
             playGame=False
             exitgame(money)
         if x =="1":
-            # roulette(money)
             money=roulette(money)
-
+    if money <=0:
+        print("Ты остался без денег! Срочно иди займи")
+    if money> startMoney:
+        print("Поздравляем с прибылью!!!")
+        print(f"На начало игры у тебя было {startMoney} {currency}")
+        print(f"Сейчас у тебя уже {money} {currency}, приходи играй еще в казино LASVEGAS")
+    if money < startMoney:
+        print(f"К сожалению ты проиграл {startMoney-money} {currency}")
+        print(f"В следующий раз у тебя обязательно все получится!")
 
 
