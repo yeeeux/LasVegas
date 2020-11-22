@@ -3,9 +3,9 @@ import random
 def roulette(mon):
     from mainmenu import getInput
     from mainmenu import getIntInput
+    from mainmenu import currency as valuta
     playGame = True
     money = mon
-    valuta="RUB"
     while(playGame and money>0):
         print("ДОБРО ПОЖАЛОВАТЬ НА ИГРУ В РУЛЕТКУ!")
         print(f"У тебя на счету {money} {valuta}\n")
