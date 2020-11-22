@@ -2,6 +2,23 @@
 currency="RUB"
 defaultMoney=10000
 playGame=True
+from roulett import roulette
+
+def getInput(digit, message):
+    inputt=""
+    while(inputt=="" or not inputt in digit):
+        inputt=input(message)
+    return (inputt)
+
+def getIntInput(min,max,mess):
+    ret = -1
+    while (ret<min or ret > max):
+        st=input(mess)
+        if st.isdigit():
+            ret = int(st)
+        else:
+            print( "Введи целое число")
+    return ret
 
 def message_in_stars(message):
         print()
@@ -25,36 +42,31 @@ def saveMoney(moneytoSave):
     except:
         print("Ошибка создания файла")
     quit(0)
-def choicegame():
-    choice=False
-    player_choice=""
-    while choice==False or player_choice=="":
-        try:
-            player_choice= int(input())
-        except:
-            pass
-        base_points=[1,2,3,0]
-        if player_choice in base_points:
-            choice=True
-            return(player_choice)
-        else:
-            print("Введите число!")
+
 def exitgame(m):
     print(f'Жаль что ты уходишь. Возвращайся завтра. Твой баланс {m}')
 
-message_in_stars("Во что поиграем сегодня?")
-print("Ты можешь сыграть в:")
-print("    ","1 - Рулетку")
-print("    ","2 - Кости")
-print("    ","3 - Слоты")
-print("    ","0 - Выход")
-choicegame()
 
-# if int(choicegame()) == 0:
-#     exitgame(loadmoney())
+def main():
+    playGame = True
+    money=loadmoney()
+    startMoney=money
+    while (playGame and money>0):
+        print("Приветствую тебя в нашем казино, Дружище!")
+        message_in_stars("Во что поиграем сегодня?")
+        print(f"У тебя на счету {money}")
+        print("Ты можешь сыграть в:")
+        print("    ","1 - Рулетку")
+        print("    ","2 - Кости")
+        print("    ","3 - Слоты")
+        print("    ","0 - Выход")
+        x = getInput("0123","Введите число!")
+        if x == "0":
+            playGame=False
+            exitgame(money)
+        if x =="1":
+            # roulette(money)
+            money=roulette(money)
 
 
-# message_in_stars("Приветствую тебя в нашем казино 'LASVEGAS'!")
-# money=loadmoney()
-# saveMoney(10000)
-# startMoney=money
+
