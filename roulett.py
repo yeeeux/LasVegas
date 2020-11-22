@@ -1,24 +1,10 @@
 import random
 
-def getInput(digit, message):
-    inputt=""
-    while(inputt=="" or not inputt in digit):
-        inputt=input(message)
-    return (inputt)
-def getIntInput(min,max,mess):
-    ret = -1
-    while (ret<min or ret > max):
-        st=input(mess)
-        if st.isdigit():
-            ret = int(st)
-        else:
-            print( "Введи целое число")
-    return ret
-
-def roulette():
+def roulette(mon):
+    from mainmenu import getInput
+    from mainmenu import getIntInput
     playGame = True
-    playroulett = True
-    money=10000
+    money = mon
     valuta="RUB"
     while(playGame and money>0):
         print("ДОБРО ПОЖАЛОВАТЬ НА ИГРУ В РУЛЕТКУ!")
@@ -35,6 +21,7 @@ def roulette():
         x=getInput("0123456","Твой выбор")
         number= random.randint(0,36)
         playroulett=True
+
         if int(x)==5:
             print()
             print("Выбери диапазон чисел:")
@@ -54,14 +41,14 @@ def roulette():
         if x=="6":
             chislo=getIntInput(0,36, "На какое число ставишь?(0-36):")
         if int(x)==0:
-            return 0
+            return money
         if playroulett:
             stavka = getIntInput(0, money, f"Сколько поставишь? (не больше {money})")
             if stavka == 0:
                 return 0
             print()
             if int(x) == 1:
-                print("Ты поставил на \033[31m красное ")
+                print("Ты поставил на \033[31m красное \033[33m ")
                 if (number % 2 == 0):
                     print("На рулетке выпало Красное!")
                     money+=stavka
@@ -128,10 +115,4 @@ def roulette():
                     print(f"Твой проигрыш:{stavka} {valuta}")
             print()
             input("Нажмите ENTER для продолжения")
-
-
-
-
-roulette()
-
 
