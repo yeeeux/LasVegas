@@ -7,7 +7,6 @@ def roulette(mon):
     playGame = True
     money = mon
     while(playGame and money>0):
-        print("ДОБРО ПОЖАЛОВАТЬ НА ИГРУ В РУЛЕТКУ!")
         print(f"У тебя на счету {money} {valuta}\n")
         print("Ставлю на...")
         print("1 - КРАСНОЕ!(выигрыш 1:1)")

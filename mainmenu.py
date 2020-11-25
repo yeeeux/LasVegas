@@ -3,6 +3,7 @@ currency="RUB"
 defaultMoney=10000
 playGame=True
 from roulett import roulette
+from cubix import cubix
 
 def getInput(digit, message):
     inputt=""
@@ -65,7 +66,11 @@ def main():
             playGame=False
             exitgame(money)
         if x =="1":
+            message_in_stars("Добро пожаловать в рулетку!")
             money=roulette(money)
+        if x =="2":
+            message_in_stars("Добро пожаловать в кости!")
+            money=cubix(money)
     if money <=0:
         print("Ты остался без денег! Срочно иди займи")
     if money> startMoney:
@@ -75,5 +80,5 @@ def main():
     if money < startMoney:
         print(f"К сожалению ты проиграл {startMoney-money} {currency}")
         print(f"В следующий раз у тебя обязательно все получится!")
-
+    saveMoney(money)
 
