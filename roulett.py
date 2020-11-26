@@ -17,7 +17,8 @@ def roulette(mon):
         print("6 - МНЕ везет! Ставлю на число...")
         print("0 - Нужно отдохнуть. Вернуться в предыдущее меню")
 
-        x=getInput("0123456","Твой выбор")
+        x=getInput("0123456","Твой выбор \n"
+                             "")
         number= random.randint(0,36)
         playroulett=True
 
@@ -48,7 +49,7 @@ def roulette(mon):
             print()
             if int(x) == 1:
                 print("Ты поставил на \033[31m красное \033[0m ")
-                if (number % 2 == 0):
+                if (number % 2 == 0) and number !=0:
                     print("На рулетке выпало \033[31m Красное!\033[0m")
                     money+=stavka
                     print(f"Твой выигрыш составил: \033[32m {stavka} {valuta} \033[0m")
@@ -58,7 +59,7 @@ def roulette(mon):
                     print(f"Твой проигрыш:\033[31m {stavka} {valuta} \033[0m ")
             if int(x) == 2:
                 print("Ты поставил на \033[30m чёрное!  \033[0m")
-                if (number %2 != 0):
+                if (number %2 != 0)  and number !=0:
                     print("На рулетке выпало \033[30m чёрное!  \033[0m")
                     money+=stavka
                     print(f"Твой выигрыш:\033[32m {stavka} {valuta} \033[0m")

@@ -11,8 +11,9 @@ def cubix(mon):
     from mainmenu import currency as valuta
     while playgame:
         print(f"У тебя на счету {money} {valuta}")
-        print("Ставка 0 вернет тебя в предыдущее меню")
-        stavka=getIntInput(0, money, f"Сделай ставку в пределах {money} {valuta}")
+        stavka=getIntInput(0, money, f"Сделай ставку в пределах {money} {valuta}\n"
+                    f"Введи 0, если хочешь слиться, дешёвка!\n"
+                    f"")
         if stavka ==0:
             return money
         play = True
@@ -27,7 +28,7 @@ def cubix(mon):
             print(f"\n Текущая сумма чисел на костях {oldResult}")
             print("\n Сумма чисел накостях будет больше, меньше или равна предыдущей?")
 
-            x=getInput("0123","1 - больше, 2 - меньше, 3 - равна, 0 - выход")
+            x=getInput("0123","1 - больше (1: 1/5) , 2 - меньше (1: 1/5), 3 - равна (1: 3), 0 - выход")
 
             if x !="0":
                 firstgame = False

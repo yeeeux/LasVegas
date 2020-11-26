@@ -4,6 +4,7 @@ defaultMoney=10000
 playGame=True
 from roulett import roulette
 from cubix import cubix
+from slots import slots
 
 def getInput(digit, message):
     inputt=""
@@ -71,6 +72,9 @@ def main():
         if x =="2":
             message_in_stars("Добро пожаловать в кости!")
             money=cubix(money)
+        if x =="3":
+            message_in_stars("Дергай за рычаг!")
+            money=slots(money)
     if money <=0:
         print("Ты остался без денег! Срочно иди займи")
     if money> startMoney:
